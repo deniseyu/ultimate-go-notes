@@ -41,4 +41,12 @@ func main() {
 	// this creates a new backing array manually
 	copy(slice2, slice1)
 
+	vegs := []string{"pear", "tomato", "cucumber"}
+
+	for _, v := range vegs {
+		// this will re-assign the original, but it will still loop 3 times
+		vegs = vegs[:2]
+
+		fmt.Println(v)
+	}
 }

@@ -82,5 +82,25 @@ The third parameter stipulates that length and capacity are going to be the same
 
 You can also call "copy".
 
+## Strings & Slices
+
+Strings are UTF-8 based. They can be ranged over! But not "character"-by-character, rather
+code point by code point, because different characters have different byte sizes. Chinese
+characters take up more space than English!
+
+The rune length tells us how many bytes fit between code points.
+
+## Range
+
+It's possible to change the value of the underlying data from inside of a "range" call. As
+long as we're using value semantics, that's okay, because we're iterating using a copy.
+Pointer semantics are where you get in trouble.
+
+## Maps
+
+When you iterate over a map, the entries will appear randomly. You can import the "sort"
+package and call 'sort.Strings(keys)' to alphabetize the keys!
+
+Maps do their best to keep data contiguous, but not as well as slices and arrays.
 
 
